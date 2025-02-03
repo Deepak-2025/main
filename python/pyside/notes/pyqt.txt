@@ -1,0 +1,470 @@
+from pyqt5.qtcore import qt
+from pyqt5.qtwidgets import qapplication,qwidgets,qlabel,qpushbutton,qvboxlayout
+
+where = 
+
+1. Qapplication = to run and execute the program(app)
+2  Qwidget      = to create window/frame for app
+3. Qlabe        =  for insert text in app
+4. Qpushbutton  =  to create submit/click button 
+5. Qvboxlayout  =  to vertical alignment of objects
+
+some important methods = 
+
+1  .addwidget() = to add new object
+2  .setText()   = to change the existing text
+3  .addlayout() = to add new layout
+4   .setlayout() = to final design of main window
+5  .show/.hide() = to show/hide the object
+
+===================================================
+# btn1.clicked.connect(random1) //to connect the method to button 
+
+#grid = qgridlayout()
+ grid.addwidget(button,row,col)  //to create grid
+
+
+===================================================
+
+
+
+
+#syntax
+=============================================================
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication,QWidget,QLabel,QPushButton,QVBoxLayout,QHBoxLayout
+
+#app settings
+app = QApplication([])
+main_window = QWidget()
+main_window.setWindowTitle("first trial")
+main_window.resize(720,480)
+
+#all objects/widget codes
+
+#loop for window
+main_window.show()
+app.exec_()
+=============================================================
+
+#some text and buttons app
+=============================================================
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication,QWidget,QLabel,QPushButton,QVBoxLayout,QHBoxLayout
+
+#app settings
+app = QApplication([])
+main_window = QWidget()
+main_window.setWindowTitle("first trial")
+main_window.resize(600,300)
+
+#all objects/widget codes
+title = QLabel("title of the app")
+
+text1 = QLabel("first")
+text2 = QLabel("second")
+text3 = QLabel("third")
+
+btn = QPushButton("click1")
+btn1 = QPushButton("click2")
+btn2 = QPushButton("click3")
+
+master_layout = QVBoxLayout()
+row1 = QHBoxLayout()
+row2 = QHBoxLayout()
+row3 = QHBoxLayout()
+
+row1.addWidget(title,alignment=Qt.AlignCenter)
+row2.addWidget(text1,alignment=Qt.AlignCenter)
+row2.addWidget(text2,alignment=Qt.AlignCenter)
+row2.addWidget(text3,alignment=Qt.AlignCenter)
+row3.addWidget(btn)
+row3.addWidget(btn1)
+row3.addWidget(btn2)
+
+master_layout.addLayout(row1)
+master_layout.addLayout(row2)
+master_layout.addLayout(row3)
+
+main_window.setLayout(master_layout)
+
+#loop for window
+main_window.show()
+app.exec_()
+=============================================================
+
+#random name generator
+=============================================================
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication,QWidget,QLabel,QPushButton,QVBoxLayout,QHBoxLayout
+
+from random import choice
+
+#app settings
+app = QApplication([])
+main_window = QWidget()
+main_window.setWindowTitle("first trial")
+main_window.resize(600,300)
+
+#all objects/widget codes
+title = QLabel("title of the app")
+
+text1 = QLabel("first")
+text2 = QLabel("second")
+text3 = QLabel("third")
+
+btn1 = QPushButton("click")
+btn2 = QPushButton("click")
+btn3 = QPushButton("click")
+
+words = ['rohan','sohan','shyam','rohit','priya','anamika']
+
+#designs
+
+master_layout = QVBoxLayout()
+row1 = QHBoxLayout()
+row2 = QHBoxLayout()
+row3 = QHBoxLayout()
+
+row1.addWidget(title,alignment=Qt.AlignCenter)
+row2.addWidget(text1,alignment=Qt.AlignCenter)
+row2.addWidget(text2,alignment=Qt.AlignCenter)
+row2.addWidget(text3,alignment=Qt.AlignCenter)
+row3.addWidget(btn1)
+row3.addWidget(btn2)
+row3.addWidget(btn3)
+
+master_layout.addLayout(row1)
+master_layout.addLayout(row2)
+master_layout.addLayout(row3)
+
+main_window.setLayout(master_layout)
+
+#functions
+def random1():
+    word = choice(words)
+    text1.setText(word)
+
+def random2():
+    word = choice(words)
+    text2.setText(word)
+
+def random3():
+    word = choice(words)
+    text3.setText(word)
+
+#events
+btn1.clicked.connect(random1)
+btn2.clicked.connect(random2)
+btn3.clicked.connect(random3)
+
+#loop for window
+main_window.show()
+app.exec_()
+=============================================================
+
+#calculator with css
+
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import QApplication,QWidget,QLabel,QPushButton,QVBoxLayout,QHBoxLayout,QGridLayout,QLineEdit
+
+
+class calcapp(QWidget):
+    
+    def __init__(self):
+        super().__init__()
+    #app settings
+        self.setWindowTitle("calculator")
+        self.resize(250,300)
+
+    #all objects/widget codes
+        self.text_box = QLineEdit()
+        
+        #css
+        self.text_box.setFont(QFont("verdana",25))
+        self.text_box.setStyleSheet("QLineEdit{font-family:arial;width:100%;height:70px;color:black;background-color:white;border-radius:10px;margin:10px;}")
+        self.grid = QGridLayout()
+
+        self.buttons = ['7','8','9','+',
+            '4','5','6','-',
+            '1','2','3','=',
+            '0','.','*','/']
+
+        row = 0
+        col = 0
+
+        for text in self.buttons:
+            button = QPushButton(text)
+            button.clicked.connect(self.button_click)
+            #css
+            button.setStyleSheet("QPushButton{font: 25pt helvetica;padding:10px;background-color:#36454f;color:white;border-radius: 30px;}")
+            self.grid.addWidget(button,row,col)
+            col +=1
+            if col>3:
+                col = 0
+                row += 1
+
+        self.clear = QPushButton("clear")
+        self.delete = QPushButton("backspace")
+        self.clear.setStyleSheet("QPushButton{font: 25pt helvetica;padding:10px;background-color:#505050;color:white;border-radius: 15px;margin:4px 2px;}")
+        self.delete.setStyleSheet("QPushButton{font: 25pt helvetica;padding:10px;background-color:#505050;color:white;border-radius: 15px;margin:4px 2px;}")
+        #designs
+
+        master_layout = QVBoxLayout()
+        master_layout.addWidget(self.text_box)
+        master_layout.addLayout(self.grid)
+
+        button_row = QHBoxLayout()
+        button_row.addWidget(self.clear)
+        button_row.addWidget(self.delete)
+
+        master_layout.addLayout(button_row)
+        #css
+        master_layout.setContentsMargins(25,25,25,25)   
+        self.setLayout(master_layout)
+
+        self.clear.clicked.connect(self.button_click)
+        self.delete.clicked.connect(self.button_click)
+
+
+    def button_click(self):
+        button = app.sender()
+        text =  button.text()
+
+        if text == "=":
+            symbol = self.text_box.text()
+            try:
+                res = eval(symbol)
+                self.text_box.setText(str(res))
+
+            except Exception as e:
+                print("error",e)
+
+        elif text == "clear":
+            self.text_box.clear()
+            
+
+        elif text == "backspace"  :
+            current = self.text_box.text()
+            self.text_box.setText(current[:-1])
+
+        else:
+            current = self.text_box.text()
+            self.text_box.setText(current+text)
+
+
+#loop for window
+if __name__ in "__main__":
+
+    app = QApplication([])
+    main_window = calcapp()
+    #css
+    main_window.setStyleSheet("QWidget{background-color:black}")
+    main_window.show()
+    app.exec_()
+
+=============================================================
+#image editor
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont,QPixmap
+from PIL import Image,ImageEnhance,ImageFilter
+from PyQt5.QtWidgets import QApplication,QWidget,QLabel,QPushButton,QVBoxLayout,QHBoxLayout,QGridLayout,QLineEdit,QListWidget,QComboBox
+
+#app settings
+app = QApplication([])
+main_window = QWidget()
+main_window.setWindowTitle("app")
+main_window.resize( 620,480)
+
+#all objects/widget codes
+path = 'pic.png'
+
+btn_folder = QPushButton("load image")
+file_list = QListWidget()
+
+clrr = QPushButton("color")
+cont = QPushButton("contras")
+blur = QPushButton("blur")
+mirror = QPushButton("mirror")
+gray = QPushButton("gray")
+
+#box
+box = QComboBox()
+box.addItem("original")
+box.addItem("mirror")
+box.addItem("blur")
+box.addItem("gray")
+box.addItem("left")
+box.addItem("right")
+
+pbox = QLabel("picture place")
+    
+#design
+master_layout = QHBoxLayout()
+
+col1 = QVBoxLayout()
+col2 = QVBoxLayout()
+
+col1.addWidget(btn_folder)
+col1.addWidget(file_list)
+col1.addWidget(box)
+col1.addWidget(clrr)
+col1.addWidget(cont)
+col1.addWidget(mirror)
+col1.addWidget(blur)
+col1.addWidget(gray)
+
+col2.addWidget(pbox)
+
+master_layout.addLayout(col1,30)
+master_layout.addLayout(col2,70)
+
+main_window.setLayout(master_layout)
+
+#add functionality
+def load():
+    pbox.hide()
+    imag = QPixmap(path)
+    w,h = pbox.width(),pbox.height()
+    imag = imag.scaled(w,h, Qt.KeepAspectRatio)
+    pbox.setPixmap(imag)
+    pbox.show()
+
+def bw():
+   pbox.hide()
+   with Image.open('pic.png') as pic:
+     black_white = pic.convert("L")
+     black_white.save("bw.png")
+     path = 'bw.png'
+     imag = QPixmap(path)
+     w,h = pbox.width(),pbox.height()
+     imag = imag.scaled(w,h, Qt.KeepAspectRatio)
+     pbox.setPixmap(imag)
+     pbox.show()
+
+def blr():
+   pbox.hide()
+   with Image.open('pic.png') as pic:
+     blur = pic.filter(ImageFilter.BLUR)
+     blur.save("blur.png")
+     path = 'blur.png'
+     imag = QPixmap(path)
+     w,h = pbox.width(),pbox.height()
+     imag = imag.scaled(w,h, Qt.KeepAspectRatio)
+     pbox.setPixmap(imag)
+     pbox.show()
+
+def contra():
+   
+   pbox.hide()
+   with Image.open('pic.png') as pic:
+     contras = ImageEnhance.Contrast(pic)
+     contras = contras.enhance(2.4)
+     contras.save('contra.png')
+     path = 'contra.png'
+     imag = QPixmap(path)
+     w,h = pbox.width(),pbox.height()
+     imag = imag.scaled(w,h, Qt.KeepAspectRatio)
+     pbox.setPixmap(imag)
+     pbox.show()
+
+def mirr():
+   pbox.hide()
+   with Image.open('pic.png') as pic:
+     mirror = pic.transpose(Image.FLIP_LEFT_RIGHT)
+     mirror.save("mirror.png")
+     path = 'mirror.png'
+     imag = QPixmap(path)
+     w,h = pbox.width(),pbox.height()
+     imag = imag.scaled(w,h, Qt.KeepAspectRatio)
+     pbox.setPixmap(imag)
+     pbox.show()
+
+def clr():
+   pbox.hide()
+   with Image.open('pic.png') as pic:
+     color = ImageEnhance.Color(pic).enhance(2.5)
+     color.save("color.png")
+     path = 'color.png'
+     imag = QPixmap(path)
+     w,h = pbox.width(),pbox.height()
+     imag = imag.scaled(w,h, Qt.KeepAspectRatio)
+     pbox.setPixmap(imag)
+     pbox.show()
+
+btn_folder.clicked.connect(load)
+gray.clicked.connect(bw)
+mirror.clicked.connect(mirr)
+cont.clicked.connect(contra)
+blur.clicked.connect(blr)
+clrr.clicked.connect(clr)
+
+#loop for window
+main_window.show()
+app.exec_()
+===============================================================
+
+#automation
+from PyQt5.QtCore import Qt
+import pyautogui,time
+from PyQt5.QtWidgets import QApplication,QWidget,QLabel,QPushButton,QVBoxLayout,QHBoxLayout,QLineEdit,QInputDialog,QMessageBox
+from PyQt5.QtGui import QIntValidator
+import sys
+
+#all objects/widget codes
+class remover(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Answer remover")
+        self.resize(400,300)
+
+
+       #self.start = QLabel("Enter title/header : ")
+       # self.staa = QLineEdit(self)
+        self.startb = QPushButton("  Click Here To Start  ")
+
+        self.label1 = QLabel("Enter total files number : ")
+        self.box1 = QLineEdit(self)
+        self.box1.setValidator(QIntValidator())
+        #self.btn1 = QPushButton(" set title ") 
+
+
+        master_layout = QVBoxLayout()  
+        stat = QHBoxLayout()
+        row1 = QHBoxLayout()
+        row2 = QHBoxLayout()
+        row3 = QHBoxLayout()
+       # row4 = QHBoxLayout()
+       # row5 = QHBoxLayout()
+
+       # stat.addWidget(self.start)
+       # stat.addWidget(self.staa)
+        stat.addWidget(self.startb)
+
+        row1.addWidget(self.label1)
+        row1.addWidget(self.box1)
+        #row1.addWidget(self.btn1)
+
+        master_layout.addLayout(row1)
+        master_layout.addLayout(stat)
+        self.setLayout(master_layout)
+        
+        self.startb.clicked.connect(self.open)           
+                  
+        #funtions
+    def open(self):              
+         
+            print("funtions")
+         
+if __name__ in "__main__":
+
+    app = QApplication([])
+    main_window = remover()
+    #css
+    #main_window.setStyleSheet("QWidget{background-color:black}")
+    main_window.show()
+    app.exec_()
+
+
+    ===================================================================================

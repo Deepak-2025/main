@@ -1,0 +1,70 @@
+Tag	Description
+<!doctype>	Document Type को Define करने के लिए
+<–…–>	Comment Tag को source code के बारे में describe करने के लिए किया जाता है.
+<html>	HTML document को Define करने के लिए
+<head>	HTML document के header section को परिभाषित करता है.
+<title>	HTML document का Title Define करने के लिए.
+<body>	HTML document की Body को Define करता है.
+<style>	HTML में Style Information को Define किया जाता है.
+<H1>to<H6>	HTML में H1 से H6 Level तक Headings बनाने के लिए.
+<p>	Paragraph बनाने के लिए किया जाता है.
+<hr>	इस tag से Horizontal Line को Define किया जाता है.
+<br>	(Break) Single Line Break देने के लिए उपयोग किया जाता है.
+<span>	Document का section को Define करने के लिए.
+<div>	(Division) Document में अलग-अलग Sections को Define करने के लिए.
+<a>	Anchor Element का उपयोग Hyperlink बनाने के लिए किया जाता है.
+<link>	External Document को HTML Document से link करने के लिए.
+<meta>	Document का Meta Data Define करने के लिए.
+<img>	Image को Define किया जाता है.
+<map>	Image-Map को Define करने के लिए.
+<area>	Image-Map में एक विशेष Area को Define करने के लिए.
+<base>	Related URLs के लिए एक Base URL Define करने के लिए.
+<script>	Client side Script को Define किया जाता है.
+<nonscript>	इसके द्वारा Alternet Content को लिखा जाता है, जो Script को Support नहीं करते है.
+<frame>	Document में Frames को Define किया जाता है.
+<frameset>	Frameset को Define किया जाता है.
+<noframes>	इसके द्वारा Alternet Content को लिखा जाता है, जो Frames को Support नहीं करते है.
+<iframe>	Inline Frame को Define किया जाता है.
+HTML Formatting Tags
+Tag	Description
+<abbr>	Abbreviation को Define किया जाता है.
+<b>	Text को Bold करने के लिए.
+<big>	Big Element से Text को Normal Size से बडा करने के लिए.
+<blockquote>	Text को Quote करने के लिए.
+<center>	Element को center position पर लाने के लिए.
+<code>	Computer code को define करता है.
+<del>	Text जिसे किसी document से हटा दिया गया है.
+<font>	Text का Font, Color और Size Define करने के लिए.
+<em>	Text को Emphasized किया जाता है.
+<i>	Text को Italic करने के लिए.
+<ins>	(Insert) Delete किए गए Text की जगह पर लिखे गए Text को Define किया जाता है.
+<mark>	Text को Highlight किया जाता है.
+<pre>	Preformatted Text को Define किया जाता है.
+<q>	Quote करने के लिए.
+<small>	Text को Normal Size से छोटा दिखाने के लिए.
+<strike>	Text के बिच में एक Line (strikethrough) करने के लिए .
+<strong>	अधिक महत्वपूर्ण text पर जोर देने के लिए.
+<sub>	Text में Subrscript add करें (H2)
+<sup>	Text में Superscript add करें (X2)
+<u>	(Underline) Text को Underline करने के लिए.
+List Tags in HTML
+Tag	Description
+<ol>	Order List Element द्वारा Number या Order Lists बनाई जाती है.
+<ul>	Unorder List Element द्वारा Bullet Lists बनाई जाती है.
+<li>	List में लिखे जाने वाले Data को Define किया जाता है.
+<dl>	Definition Lists को Define करने के लिए.
+<dd>	Definition Terms के Description को Define किया जाता है.
+<dt>	Definition Term को Define किया जाता है.
+MS DOS में इस्तेमाल होने वाले Commands की list.
+Computer Hardware की सूची.
+Computer Keyboard Shortcut जो आपको जानना चाहिए.
+Table Tags in HTML
+Tag	Description
+<table>	Table को Define किया जाता है.
+<caption>	Table Caption यानि शीर्षक Define करने के लिए.
+<th>	Table Header यानि Cells को Define करने के लिए.
+<tr>	Table Row को Define किया जाता है.
+<td>	Table Data को Define किया जाता है.
+<thead>	Header Content का Group बनाने के लिए.
+<tbody>	Body Content को Group किया जाता है.
+<tfoot>	Footer Content को Group किया जाता है.

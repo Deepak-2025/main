@@ -1,0 +1,20 @@
+# python to exe file
+
+# open python file location and open cmd on that location 
+
+# then write this
+ 
+pyinstaller.exe --onefile -w --icon=icon.ico --noconsole file_name.py
+or 
+pyinstaller.exe --icon=icon.ico file_name.py
+0r
+pyinstaller --onefile --noconsole --icon=routine.ico routine.pys
+
+# after converting the file copy all resouces and put it on dist folder
+
+#install innosetup 
+
+#https://www.youtube.com/watch?v=O3RXTFAiZJs for innosetup
+
+#create license for software
+#we can update apps version  through innosetup

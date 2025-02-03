@@ -1,0 +1,44 @@
+<?php
+if(isset($_POST['submit'])){
+//connaecting to the database
+$server = "localhost";
+$username = "id16841941_mohansharma";
+$password = "]oD!tu&h*^pa7~6^";
+$db = "id16841941_registration";
+
+//create a connection
+
+$conn = mysqli_connect($server,$username,$password,$db);
+
+//die if cconnection failed
+
+if(!$conn){
+    die("sorry we failed to connect:". mysqli_connect_error());
+}
+//echo "success connecting to the db";
+  
+
+else{
+    echo "registration was successful<br>";
+}
+
+$name = $_POST['name'];
+$mobile = $_POST['mobile'];
+$Email = $_POST['Email'];
+$passwords = $_POST['passwords'];
+$sql = "INSERT INTO  `registered`(`name`, `mobile`, `Email`, `passwords`)
+     VALUES ('$name','$mobile','$Email','$passwords')";
+    // echo $sql;
+
+     if($conn->query($sql)==true){
+      //   echo "successfully inserted";
+     }
+     else{
+         echo "ERROR: $sql <br> $conn->error";
+     }
+
+        $conn->close();
+    }
+    
+?>
+

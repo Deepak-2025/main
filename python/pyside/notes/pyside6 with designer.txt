@@ -1,0 +1,177 @@
+#open designer.exe
+
+designer.exe location C:\Users\dt160\AppData\Local\Programs\Python\Python312\Lib\site-packages\PySide6
+
+# create new file 
+
+step1: add forms
+
+step2: add add btn and all widgets ap per the need
+
+step3: rename all object 
+
+step4: fix the sizing of widget and setstylesheet(complete the css/designing for the application )
+
+# import as python file
+
+step5: pyuic6.exe .\file_name.ui -o .\file_name.py
+
+# create main.py to connect all componants together (database,function,ui)
+
+# code  for main python file
+=====================================================================================
+	from PyQt6 import QtCore, QtGui, QtWidgets
+
+	#to connect and create db
+	from mai import Ui_MainWindow
+	from connecttodb import connection
+
+	class MainWindow(QtWidgets.QMainWindow):  # Make sure MainWindow inherits from QMainWindow or QWidget
+	    def __init__(self):
+	        super().__init__()
+	        self.ui = Ui_MainWindow()
+	        self.ui.setupUi(self)  # Pass self (MainWindow) to setupUi method
+
+		#to connect the db
+		#self.db = connection()
+
+	# Now continue with your main script
+	if __name__ == "__main__":
+	    app = QtWidgets.QApplication([])
+	    window = MainWindow()  # This will now work correctly
+	    window.show()
+	    app.exec()
+====================================================================================
+
+step6: create database.py and make database for application 
+database code:
+#the header name not contain any symbol(.\/;'[]=-)(like=sn0.)
+======================================================================================
+#create database
+         database = QSqlDatabase.addDatabase("QSQLITE")
+         database.setDatabaseName('main.db')
+
+         if database.open():
+         # Get the database name
+          database_name = database.databaseName()
+          print("Database Name:", database_name)
+         else:
+             print("Failed to open the database")
+
+         query = QSqlQuery()    
+         query.exec(""" 
+                    CREATE TABLE IF NOT EXISTS task(
+                    Sno INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Task TEXT
+                    )""")
+# to make visible table in app
+         def l_table():
+          self.ui.table.setRowCount(0)
+          query = QSqlQuery("SELECT * FROM task")
+          row = 0
+          while query.next():
+            Id = query.value(0)
+            tsk = query.value(1)
+
+            #ADD VALUes into table
+            self.ui.table.insertRow(row)
+            #self.ui.table.setItem(row, 0,self.ui.item(str(Id)))
+            item = QtWidgets.QTableWidgetItem(str(Id))  # Create a new QTableWidgetItem
+            self.ui.table.setItem(row, 0, item)
+            item = QtWidgets.QTableWidgetItem(str(tsk))
+            self.ui.table.setItem(row, 1,item)
+            row += 1
+
+# to insert data in table
+ def insert():
+           task =  self.ui.box2.text()
+           query = QSqlQuery()
+           query.prepare("""INSERT INTO task(task)
+                            VALUES (?)""")
+           query.addBindValue(task)
+           query.exec()
+           self.ui.box2.clear()
+           l_table()
+
+# to delete the data from table
+         def delete():
+            select_row = self.ui.table.currentRow()
+            if select_row == -1:
+              print("please select row")
+            else:
+             Id = int(self.ui.table.item(select_row,0).text())
+             print(Id)
+
+             query = QSqlQuery()
+            # SQL query to delete a row where the id is 5 (for example)
+             query.prepare("DELETE FROM task WHERE Sno = :Sno")
+             query.bindValue(":Sno", Id)  # Bind the value for the placeholder
+             # Execute the query
+             if query.exec():
+               print("Row deleted successfully")
+
+            l_table()
+
+# to update the data from table
+         def update():
+          task =  self.ui.box2.text()
+          select_row = self.ui.table.currentRow()
+          if select_row == -1:
+              print("please select row")
+          else:
+             Id = int(self.ui.table.item(select_row,0).text())
+
+             query = QSqlQuery()
+             print(task)
+             query.prepare("UPDATE task SET task = :task WHERE Sno = :Sno")
+             query.bindValue(":Sno", Id)
+             query.bindValue(":task", task)
+             if query.exec():
+                self.ui.box2.clear()
+                print("Row updated successfully")
+          l_table()
+
+# to clear all data from table
+         def clear():
+             query = QSqlQuery()
+             query.prepare("DROP TABLE IF EXISTS task")
+             query.exec() 
+             query.exec(""" 
+                    CREATE TABLE IF NOT EXISTS task(
+                    Sno INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Task TEXT
+                    )""")
+			l_table()
+
+# to  save the all data in csv file
+
+         def save():
+            query = QSqlQuery()
+            # SQL query to select all rows from the table
+            query.prepare("SELECT * FROM task")
+            # Execute the query
+            if query.exec():
+            # Open the CSV file to write
+               with open('output.csv', mode='w', newline='') as file:
+                  writer = csv.writer(file)
+                  # Write column headers (get column names)
+                  columns = [query.record().fieldName(i) for i in range(query.record().count())]
+                  writer.writerow(columns)
+                  # Write all rows
+                  rows = []
+                  while query.next():
+                     row = [query.value(i) for i in range(query.record().count())]
+                     rows.append(row)
+                  # Write all rows at once
+                  writer.writerows(rows)
+
+               print("All data has been saved to output.csv")
+            else:
+             print("Failed to execute query:", query.lastError().text())
+             print("Failed to connect to the database")
+
+
+======================================================================================
+
+
+

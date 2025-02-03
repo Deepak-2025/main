@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="center">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi tempore vel distinctio ipsam voluptates
+                odit at, aliquid officiis eaque reprehenderit, ut inventore facilis, neque ullam odio debitis aliquam
+                cumque perspiciatis veniam quia ducimus minus modi recusandae praesentium. Illum nemo perspiciatis,
+                voluptate natus neque similique voluptatum error fugiat illo facilis delectus, facere laboriosam
+                reiciendis deleniti suscipit quia, tempora ex. Cum facere quam neque, optio placeat ad corporis ullam
+                unde exercitationem inventore.</p>
+        </div>
+        <div id="time">
+            <script>
+                date = new Date().toDateString();
+                document.write(date);
+            </script>
+        </div>
+        <div id="footer">
+            <div class="mar">
+                <marquee behavior="" direction="left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
+                    reprehenderit vero, beatae voluptatem neque harum dolores dolorum tenetur enim et?</marquee>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0px;
+    }
+
+    #container {
+        height: 100vh;
+        width: 100vw;
+        background-image: url(2.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+    }
+
+    #time {
+        display: flex;
+        position: absolute;
+        bottom: 10px;
+        padding-left: 50px;
+        font-size: 25px;
+        color: white;
+        text-align: center;
+    }
+
+    #footer {
+        display: flex;
+        position: absolute;
+        bottom: 15px;
+        font-size: 30px;
+        color: white;
+        text-align: center;
+        padding-left: 17vw;
+        padding-right: 10px;
+    }
+
+    #center {
+        position: absolute;
+        display: flex;
+        top: 20vh;
+        left: 20vw;
+        right: 20vw;
+        font-size: 30px;
+        background-color: transparent;
+        color: white;
+    }
+</style>
+
+</html>

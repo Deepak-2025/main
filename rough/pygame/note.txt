@@ -1,0 +1,63 @@
+#for start
+import pygame
+pygame.init()
+
+#for end
+pygame.quit()
+quit()
+
+#for adding image
+pygame.image.load('____')
+
+#for adding image in screen
+win.blit(image location, (x,y))
+
+#for screen size and color
+x=500
+y=500
+gd = pygame.display.set_mode((x, y))  
+gd.fill(red)    
+
+#for rectangle
+pygame.draw.rect(gd,yellow,[150,150,20,20])
+
+#for update all codes
+pygame.display.update()
+
+#for mouse position
+pos = pygame.mouse.get_pos()
+print(pos)
+
+#for mouse click event
+ click = pygame.mouse.get_pressed()
+#(1,0,0) left  
+#(0,1,0) center
+#(0,0,1) right
+#if click == (1,0,0): 
+ 
+#key events 
+keys = pygame.key.get_pressed()        
+   if keys[pygame.K_ESCAPE]:
+        main = True
+ pygame.display.update()
+
+#for function
+def start(): 
+qt = False
+while qt == False:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            qt = True
+               pygame.quit()
+               quit()
+
+#for adding bg song
+bgm = pygame.mixer.music.load("____")
+pygame.mixer.music.play()  #for starting the sound
+bgm.play()
+
+#for adding sound 
+sound = pygame.mixer.sound("__")
+sound.play()
+
+

@@ -1,0 +1,58 @@
+import pygame
+
+pygame.init()
+
+white = (255,255,255)
+yellow = (255,255,0)
+pink = (255,0,255)
+blue = (0,255,255)
+red = (255,0,0)
+black = (0,0,0)
+
+gd = pygame.display.set_mode((400,400))  #size of game screen 
+gd.fill(red)    #background color of game screen
+
+#image = pygame.image.load("___") #for background image
+
+pygame.display.update() #for update the code
+
+#pygame.draw.rect(gd,yellow,[150,150,20,20])
+#pygame.draw.rect(gd,color,[x_pos,y_pos,size,size])
+
+#pos = pygame.mouse.get_pos()
+#print(pos)
+pos = (100, 100)
+pygame.draw.circle(gd,yellow,pos,30)
+pygame.display.update()
+
+def start(): #for function
+qt = False
+while qt == False:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            qt = True
+               pygame.quit()
+               quit()
+	
+    win.blit(image location, (x,y)) #for show the image
+
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    if x_setting<mouse[0]<x_setting+30 and y_setting<mouse[1]<y_setting+40:        
+        if click == (1,0,0): 
+         Setting1()
+ 
+     keys = pygame.key.get_pressed()        
+    if keys[pygame.K_ESCAPE]:
+        main = True
+    pygame.display.update()
+
+
+start()
+
+pygame.quit()
+quit()
+
+
+
+
