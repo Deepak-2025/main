@@ -2,7 +2,7 @@ Tag	Description
 <!doctype>	Document Type को Define करने के लिए
 <–…–>	Comment Tag को source code के बारे में describe करने के लिए किया जाता है.
 <html>	HTML document को Define करने के लिए
-<head>	HTML document के header section को परिभाषित करता है.
+<head>	HTML document के header section को परिभाषित करत है.
 <title>	HTML document का Title Define करने के लिए.
 <body>	HTML document की Body को Define करता है.
 <style>	HTML में Style Information को Define किया जाता है.

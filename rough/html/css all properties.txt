@@ -1,6 +1,4 @@
 A
-
-
 align-content	Specifies the alignment between the lines inside a flexible container when the items do not use all available space
 align-items	Specifies the alignment for items inside a flexible container
 align-self	Specifies the alignment for selected items inside a flexible container
