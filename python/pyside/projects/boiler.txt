@@ -1,0 +1,21 @@
+import sys
+from PySide6.QtCore import Qt, QDateTime,QCoreApplication, QMetaObject, QRect,QSize, Qt
+from PySide6.QtWidgets import (QApplication, QTableWidgetItem, QMainWindow,QMessageBox,QAbstractItemView,QLineEdit,QFrame, QGridLayout, QLabel,QPushButton,QTableWidget, QWidget)
+from PySide6.QtSql import QSqlDatabase, QSqlQuery
+from PySide6.QtGui import (QCursor,QFont)
+#from routine import Ui_routine
+import csv
+
+class routin(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_routine()
+        self.ui.setupUi(self)
+
+
+        
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = routin()
+    window.show()
+    sys.exit(app.exec())
