@@ -1,0 +1,22 @@
+
+npm init -y
+
+//create new file index.js
+
+npm i express
+
+// make a folder name public 
+// and create new folder like htmls javascripts stylesheets images etc. inside the public
+
+//make a folder name views
+//make index.ejs file and put html code inside this file
+// ejs syntax <% %> and <%= %>
+//with this ejs syntax we can send the params in html file
+
+//after all steps make a template/design of app 
+
+//we can use ejs for dynamic works
+//we can access the data of any element by giving it name
+
+
+//connection to mongodb
