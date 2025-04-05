@@ -1,0 +1,15 @@
+npm i create vite@latest
+or
+npm i create-react-app
+
+npm i
+
+npm i tailwind css @tailwindcss/vite
+
+plugins (folder)
+import tailwindcss from '@tailwindcss/vite'
+[tailwind css()]
+
+npm run dev
+
+use port forward to see the output in phone

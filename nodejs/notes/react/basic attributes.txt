@@ -1,0 +1,24 @@
+const name ='ram'
+
+<h1> {name} </h1>
+
+#usestate = const[a,b] = usestate(10)  
+
+# component = function start with capital later (data sending is ont reversable)
+
+# map =
+users={name:rahul,
+	"age:20"}
+
+to traverse the data = users.map(function(elem){return{elem.name})}
+
+#props = 
+<Header name="Rahul" age="20"/>
+
+#axios = to fetch data from any api
+
+#useeffect = to fetch data parrellel to other work
+
+#routing = npm i react-router-dom 
+
+# form = react-hook-form = for good form handling

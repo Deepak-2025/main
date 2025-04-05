@@ -1,0 +1,37 @@
+npm init -y 
+npm i 
+npm i express
+npm i mongoose
+npm i cookie-parser
+npm i bcrypt
+npm i ejs
+npm i jsonwebtoken 
+npm i nodemon 
+
+//to start the express server
+nodemon mainfilename.js
+
+make folders :-
+
+# config 
+# controllers
+# middlewares 
+# models
+# public 
+# routes
+# utils
+# views 
+# .env
+# app.js
+
+//app.js
+
+terminal -
+
+npm init -y
+install all necessary packages
+
+//db
+create db as per the use one or many 
+
+//
