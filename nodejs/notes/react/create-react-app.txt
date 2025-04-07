@@ -1,0 +1,48 @@
+npx create-react-app filename
+
+cd --directory--
+
+npm start
+
+# rfce for boilercode
+
+# tailwindcss = {
+
+npm install -D tailwindcss@3
+npx tailwindcss init
+
+index.css = 
+@tailwind base;
+@tailwind components;
+@tailwind utilities; }
+
+// src - components and pages folder
+
+# routing = {
+
+npm i react-router-dom
+
+import react router dom
+<BrowserRouter>
+
+<Routes>
+<Route path="" element="" />
+</Routes>
+
+# to use link we have to import react router dom
+#in header user link instead of a tag = <Link to="/">home</Link>
+
+}
+
+# without form data post = {
+
+import {useState} from react
+
+const [name, setName] = useState("");
+
+value={name}
+onChange={(e) => setName(e.target.value)}
+
+}
+
+
